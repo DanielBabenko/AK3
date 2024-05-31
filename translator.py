@@ -9,9 +9,6 @@ SHIFT = 100  # именно с этого адреса в памяти лежа�
 
 
 def get_meaningful_token(line: str) -> str:
-    """Извлекаем из строки содержательный токен (метка или инструкция), удаляем
-    комментарии и пробелы в начале/конце строки.
-    """
     return line.split(";", 1)[0].strip()
 
 
@@ -38,7 +35,7 @@ def translate_stage_1(text: str) -> tuple[dict, dict, list, list]:
 
         pc = len(code)
 
-        if token.endswith(":"):  # токен содержит метку
+        if token.endswith(":"):
             label = token.strip(":")
             assert label not in label2command_address, "Redefinition of label: {}".format(label)
             label2command_address[label] = SHIFT + pc
