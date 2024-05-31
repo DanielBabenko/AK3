@@ -14,6 +14,8 @@ class Opcode(str, Enum):
     JMP = "jmp"
     JZ = "jz"
     JNZ = "jnz"
+    JS = "js"
+    JNS = "jns"
 
     HALT = "halt"
 
@@ -51,19 +53,6 @@ class Term(namedtuple("Term", "line pos symbol")):
 
     Сделано через класс, чтобы был docstring.
     """
-class Instruction:
-    def __init__(self, address: int, opcode: Opcode, arg1=None, addr1=None, arg2=None, addr2=None, save_space=None, addr3=None):
-        self.address = address
-        self.opcode = opcode
-        self.arg1 = arg1
-        self.addr1 = addr1
-        self.arg2 = arg2
-        self.addr2 = addr2
-        self.save_space = save_space
-        self.addr3 = addr3
-
-    def __str__(self):
-        return self.opcode + " -> " + str(self.arg1) + " | " + str(self.addr1) + " | " + str(self.arg2) + " | " + str(self.addr2) + " | " + str(self.save_space) + " | " + str(self.addr3)
 
 def write_code(filename, code):
     with open(filename, "w", encoding="utf-8") as file:

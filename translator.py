@@ -22,7 +22,7 @@ def translate_stage_1(text: str) -> tuple[dict, dict, list, list]:
     data = []
 
     opcodes_with_operand = [Opcode.JMP, Opcode.DEC, Opcode.INC, Opcode.PRINT_CHAR, Opcode.CALL]
-    opcodes_with_two_operands = [Opcode.JZ, Opcode.JNZ, Opcode.ADD_STR, Opcode.STORE]
+    opcodes_with_two_operands = [Opcode.JZ, Opcode.JNZ, Opcode.JS, Opcode.JNS, Opcode.ADD_STR, Opcode.STORE]
     opcodes_with_three_operands = [Opcode.MOV, Opcode.MOD, Opcode.MUL, Opcode.SUB, Opcode.ADD]
     opcodes_with_operands = opcodes_with_operand + opcodes_with_two_operands + opcodes_with_three_operands
 
@@ -77,6 +77,8 @@ def translate_stage_2(label2command_address: dict, label2str_address: dict, code
         if "arg" in instruction and instruction["opcode"].value in {
             Opcode.JZ.value,
             Opcode.JNZ.value,
+            Opcode.JS.value,
+            Opcode.JNS.value,
             Opcode.JMP.value,
             Opcode.CALL.value,
         }:

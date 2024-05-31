@@ -257,11 +257,9 @@ class ControlUnit:
         self.interruption_enabled = False
 
     def tick(self):
-        """Продвинуть модельное время процессора вперёд на один такт."""
         self._tick += 1
 
     def current_tick(self):
-        """Текущее модельное время процессора (в тактах)."""
         return self._tick
 
     def check_and_handle_interruption(self) -> None:

@@ -1,13 +1,12 @@
 [tool.poetry]
-#name = "asm"
-name = "kasm_and_processor"
+name = "AK3"
 version = "0.1.0"
 description = ""
-authors = ["Kamil"]
+authors = ["DanielBabenko"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.9"
 
 [tool.poetry.group.dev.dependencies]
 coverage = "^7.2.7"
