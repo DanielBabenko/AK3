@@ -4,10 +4,10 @@ next = 2
 sum = 2
 
 while next <= 4000000:
-    if (previous + next) % 2 == 0:
-        sum += (previous + next)
-    tmp = previous
+    tmp = previous + next
+    if (tmp) % 2 == 0:
+        sum += tmp
     previous = next
-    next += tmp
+    next = tmp
 
 print(sum)
